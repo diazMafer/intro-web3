@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Web3 from 'web3'
 import promisify from 'util.promisify'
 import "regenerator-runtime/runtime";
-import "./style.css"
+import "../styles/home.scss"
 
 export default class App extends React.Component {
 
@@ -82,34 +82,42 @@ export default class App extends React.Component {
 
     render () {
         return (
-            <div >
-                <div >
-                    <div >
-                        <h2 >Lista de cuentas disponibles</h2>
-                    </div>
-                    <div>
-                    <ul className="accounts">
-                        {this.state.accounts.map((item, index) => (
-                            <li key={index}>
-                                {item}  with {this.state.balances[item]} ethers
-                            </li>
-                        ))}
-                    </ul>
-
-                    <h3>Precio del gas: <span>{this.state.gasPrice}</span></h3>
-                    <h3>ChanID: <span>{this.state.chainId}</span></h3>
-                    <h3>BlockNumber: <span>{this.state.blockNumber}</span></h3>
-
-                    <div className="login-page">
-                        <div className="form">
-                            <form className="login-form">
-                                <input type="text" placeholder="Remitente" onChange={event => this.setState({from: event.target.value})}/>
-                                <input type="text" placeholder="Destino" onChange={event => this.setState({to: event.target.value})}/>
-                                <input type="number" placeholder="Monto" onChange={event => this.setState({amount: event.target.value})}/>
-                                <button onClick={this.doAirDrop}>Transferir</button>
-                            </form>
+            <div className="body">
+                <div className="container">
+                    <div className="row">
+                        <div id="accounts" className="text-block">
+                            <div >
+                                <h2 >Lista de cuentas disponibles</h2>
+                            </div>
+                            <ul className="accounts">
+                                {this.state.accounts.map((item, index) => (
+                                    <li key={index}>
+                                        <strong className="address">{item}</strong>  with <strong className="amount">{this.state.balances[item]} </strong> ethers
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
-                    </div>
+                        <div id="network-info">
+                            <div className="text-block">
+                                <h2>Información de la red</h2>
+                                <h4>Precio del gas: <span>{this.state.gasPrice}</span></h4>
+                                <h4>ChanID: <span>{this.state.chainId}</span></h4>
+                                <h4>BlockNumber: <span>{this.state.blockNumber}</span></h4>
+                            </div>
+                        </div>
+                        <div id="transfer-block">
+                            <div className="text-block">
+                                <div >
+                                <h2>Realizar una transacción</h2>
+                                    <form >
+                                        <input className = "form-control" type="text" placeholder="Remitente" onChange={event => this.setState({from: event.target.value})}/>
+                                        <input className = "form-control" type="text" placeholder="Destino" onChange={event => this.setState({to: event.target.value})}/>
+                                        <input className = "form-control" type="number" placeholder="Monto" onChange={event => this.setState({amount: event.target.value})}/>
+                                        <button className="transf-button" onClick={this.doAirDrop}>Transferir</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 

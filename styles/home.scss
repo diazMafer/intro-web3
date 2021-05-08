@@ -1,15 +1,50 @@
 .body {
   background: #020631;
   font: 14px 'Nunito', sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 .today{
   font-size: 22px;
 }
-
-  .animated.bounceIn, .animated.bounceOut, .animated.flipOutX, .animated.flipOutY {
-    font-size: 13px;
-  }
-
+.transf-button {
+  margin: 20px;
+  margin-right: 30%;
+  float: right;
+  background-color: lightblue;
+  color:black;
+  
+}
+#network-info {
+  float: right; 
+  color: white;
+  margin: 25px;
+}
+#accounts { 
+  color: gray;
+  margin: 25px;
+}
+#transfer-block{
+  float: left;
+  margin: 25px;
+}
+.address {
+  color: white;
+}
+.amount {
+  color: #337ab7;
+}
+form {
+  height: 100%;
+}
+h2 {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: coral;
+}
+span {
+  color: #337ab7;
+}
 .container {
   padding-top: 75px;
 }
@@ -92,29 +127,20 @@
 .has-feedback .fa:hover {
   color: #999;
 }
-.add-control {
-  margin-top: 20px;
-  position: relative;
-}
-.add-control .form-control {
+.form-control {
   padding-right: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 20px;
 }
-.add-control .refresh {
-  position: absolute;
-  top: 8px;
-  right: 0;
-  font-size: 14px;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-  margin-right: -10px;
-  cursor: pointer;
-  color: #9da1af;
-  -webkit-transition: color 0.15s linear;
-  transition: color 0.15s linear;
+
+.text-block {
+  border: 3px solid white;
+  padding: 25px;
+  padding-right: 45px;
+  border-radius: 25px;
 }
-.add-control .refresh:hover {
-  color: #666;
-}
+
 .form-control,
 .form-control:focus,
 .form-control:active,
@@ -171,7 +197,12 @@
 }
 
 
-
+$c-gray: #8d959b;
+$c-light: #f9f9f9;
+$c-dark: #404060;
+$c-red: #e96575;
+$c-blue: #4b96f0;
+// Base Classes
 .group:after {
   content: "";
   display: table;
@@ -199,6 +230,22 @@ button {
   }
 
 
+button[disabled] {
+  color: $c-gray !important;
+  background: #fff !important;
+}
+.output {
+  padding-bottom: 10px;
+
+  button {
+    color: $c-blue;
+    &:hover,
+    &:focus {
+      transform: scale(1.5);
+      background: transparent;
+    }
+  }
+}
 
 
 #start {
@@ -232,7 +279,18 @@ box-shadow: 0 0 25px 0 #452579;
     padding-right: 35px;
 }
 
+#reset {
 
+  color: $c-red;
+  &:hover,
+  &:focus {
+    background-color: $c-red;
+    color: #fff;
+    border-radius: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}
 
 .pomodoro {
     text-align: center;
@@ -314,5 +372,4 @@ svg {
 .todo-list input[type="checkbox"] {
     opacity: 0;
 }
-
 
